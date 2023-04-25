@@ -26,8 +26,8 @@ const SliderWithNumber: React.FC<SliderWithNumberProps> = ({
   style,
   ...rest
 }) => {
+  debugger
   const { max, min, step } = schema;
-  
   let setting = {};
   if (max || max === 0) {
     setting = { max };

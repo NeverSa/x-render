@@ -47,11 +47,13 @@ export default () => {
   const form = useForm();
 
   const onFinish = (formData) => {
+    debugger
     console.log('formData:', formData);
   };
 
   return (
     <FormRender 
+      globalProps={{ devicetype: "mobile" }}
       form={form} 
       schema={schema} 
       onFinish={onFinish} 

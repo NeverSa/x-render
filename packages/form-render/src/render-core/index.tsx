@@ -20,7 +20,6 @@ interface RenderItemProps {
 
 const renderItem = (props: RenderItemProps) => {
   let { schema, key, path, rootPath } = props;
-
   // render List
   if (schema.type === 'array' && schema.items?.type === 'object') {
     return (
@@ -42,7 +41,6 @@ const renderItem = (props: RenderItemProps) => {
     child = RenderCore({ schema, parentPath: path, rootPath })
     path = undefined;
   }
-
   return (
     <FieldItem
       key={key}
@@ -68,9 +66,18 @@ const RenderCore = (props: RenderCoreProps) : any => {
 
   // render Objiect | field
   return sortProperties(Object.entries(schema.properties)).map(([key, item]) => {
-    const path = [...parentPath, key];
-   
-    return renderItem({ schema: item, path, key, rootPath });
+    if(item.widget=="frgroup"){
+      return <div className='frgroup_card' style={{width:"100%"}}>{
+        Object.entries(item.properties).map(([keys, items])=>{
+          const path = [...parentPath, keys];
+          return renderItem({ schema: items, path, key:keys, rootPath });
+        })
+      }</div>
+    }else{
+      const path = [...parentPath, key];
+      return renderItem({ schema: item, path, key, rootPath });
+    }
+ 
   });
 }
 

@@ -1,5 +1,5 @@
 {
-  "name": "form-render",
+  "name": "form-render-local",
   "version": "2.1.11",
   "description": "通过 JSON Schema 生成标准 Form，常用于自定义搭建配置界面生成",
   "keywords": [

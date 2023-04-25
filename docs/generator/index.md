@@ -33,7 +33,9 @@ const defaultValue = {
 const Demo = () => {
   return (
     <div style={{ height: '80vh' }}>
-      <Generator defaultValue={defaultValue} />
+      <Generator defaultValue={defaultValue} customprops={{
+        id:111
+      }}/>
     </div>
   );
 };

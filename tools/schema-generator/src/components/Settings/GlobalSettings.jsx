@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { defaultGlobalSettings } from '../../settings';
 import { useGlobal, useStore } from '../../utils/hooks';
 
-export default function GlobalSettings({ widgets }) {
+export default function GlobalSettings({ widgets,customprops }) {
   const form = useForm();
   const [innerUpdate, setInnerUpdate] = useState(false);
   const {
@@ -40,6 +40,9 @@ export default function GlobalSettings({ widgets }) {
         watch={{
           '#': v => onDataChange(v),
         }}
+        globalProps={
+          customprops
+        }
         widgets={{ ...globalWidgets, ...widgets }}
         mapping={mapping}
       />

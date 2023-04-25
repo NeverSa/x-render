@@ -16,7 +16,7 @@ interface Props {
 
 const RadioComp = (props: Props) => {
   const { direction = 'row', options = [], ...rest } = props
-
+debugger
   if (direction === 'column') {
     return <Radio.Group {...rest} >
       <Space direction='vertical'>

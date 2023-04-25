@@ -155,7 +155,6 @@ export default (props: any) => {
   }
 
   const operateBtnType = globalConfig?.listOperate?.btnType;
-
   return (
     <>
       <Form.List

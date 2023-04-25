@@ -28,7 +28,7 @@ const BoxSubInline = (props: any) => {
   if (fieldCol) {
     _fieldCol = fieldCol;
   }
-
+debugger
   return (
     <Form.Item
       className={classnames('fr-obj-subinline', {

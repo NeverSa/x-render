@@ -9,7 +9,7 @@ import ItemSettings from './ItemSettings';
 
 const { TabPane } = Tabs;
 
-export default function Settings({ widgets }) {
+export default function Settings({ widgets,customprops }) {
   const { t } = useTranslation();
   const [state, setState] = useSet({
     tabsKey: 'globalSettings',
@@ -64,7 +64,7 @@ export default function Settings({ widgets }) {
         )}
         {!globalSettingHide && (
           <TabPane tab="表单配置" key="globalSettings">
-            <GlobalSettings widgets={widgets} />
+            <GlobalSettings widgets={widgets} customprops={customprops}/>
           </TabPane>
         )}
       </Tabs>

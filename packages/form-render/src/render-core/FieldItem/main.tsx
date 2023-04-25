@@ -36,7 +36,6 @@ export default (props: any) => {
   if (schema?.hidden) {
     return null;
   }
-
   const formCtx: any = useStore(store, (state: any) => state.context);
   const upperCtx: any = useContext(UpperContext);
   const configCtx = useContext(ConfigContext);
@@ -71,7 +70,6 @@ export default (props: any) => {
       </Col>
     );
   }
-
   const displayType = getValueFromKey('displayType');
 
   let inlineSelf = _inlineMode || upperCtx?.displayType === 'inline';
@@ -101,7 +99,6 @@ export default (props: any) => {
 
     fieldProps.children = childElement;
     const content = <Widget labelWidth={labelWidth} displayType={schema.displayType} {...fieldProps} {...otherSchema} />;
-
     return (
       <UpperContext.Provider
         value={{
@@ -165,10 +162,9 @@ export default (props: any) => {
   }
 
   const initialValue = schema.default ?? schema.defaultValue;
-
   const formItem = (
     <Form.Item
-      className={classnames('fr-field', { 'fr-hide-label': label === 'fr-hide-label', 'fr-inline-field': inlineSelf, 'fr-field-visibility': !visible })}
+      className={classnames(`fr-field custom-field ${schema.widget?schema.widget:'' }`, { 'fr-hide-label': label === 'fr-hide-label', 'fr-inline-field': inlineSelf, 'fr-field-visibility': !visible })}
       label={label}
       name={path}
       valuePropName={valuePropName}

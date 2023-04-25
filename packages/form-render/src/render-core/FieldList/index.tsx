@@ -14,8 +14,7 @@ export default (props: any) => {
 
   const formCtx: any = useStore(store, (state: any) => state.context);
   const upperCtx: any = useContext(UpperContext);
-  const { form, widgets, methods } = configContext;
-
+  const { form, widgets, methods ,globalProps} = configContext;
   const { displayType } = formCtx;
   const isDisplayColumn = displayType === 'column';
   const { schema:_schema, path,} = props;
@@ -28,7 +27,6 @@ export default (props: any) => {
     items,
     ...parseAllExpression(otherSchema, formData, props.rootPath, formSchema)
   };
-  
   const { widget } = schema;
   let widgetName = widget || 'list1';
 
@@ -52,7 +50,7 @@ export default (props: any) => {
     <Col span={24}>
       {!isInline && !isDisplayColumn && label && (
         <Form.Item
-          className='ant-form-item-optional-hide'
+          className={`ant-form-item-optional-hide ${schema.widget}`}
           label={label}
           labelAlign={'left'}
           colon={false}
@@ -62,7 +60,7 @@ export default (props: any) => {
         </Form.Item>
       )}
       <Form.Item
-        className='ant-form-item-optional-hide'
+         className={`ant-form-item-optional-hide ${schema.widget}`}
         label={label} 
         labelCol={labelCol}
         wrapperCol={fieldCol}

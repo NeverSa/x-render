@@ -13,16 +13,17 @@ const Generator = forwardRef(
     ref
   ) => {
     const { i18n } = useTranslation();
+    const {customprops}=props
     useEffect(() => {
       i18n.changeLanguage(locale);
     }, [locale]);
 
     return (
-      <Provider ref={ref} {...props}>
+      <Provider ref={ref} customprops={customprops} {...props} >
         <div className="fr-generator-container">
           <Sidebar fixedName={fixedName} />
           <Canvas onSelect={onCanvasSelect} />
-          <Settings widgets={settingsWidgets} />
+          <Settings widgets={settingsWidgets} customprops={customprops}/>
         </div>
       </Provider>
     );
